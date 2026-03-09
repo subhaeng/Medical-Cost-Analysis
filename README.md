@@ -1,172 +1,165 @@
-🏥 Medical Cost Personal Dataset – End-to-End Data Analysis
+
+🏥 Medical Cost Analysis
+
+
+
+
+
+
+
+
 📌 Project Overview
 
-This project performs end-to-end Exploratory Data Analysis (EDA) on a Medical Cost Personal Dataset to understand the key factors influencing insurance charges, such as age, BMI, smoking habits, region, and number of dependents.
+The Medical Cost Analysis project explores healthcare insurance data to understand the key factors that influence medical insurance costs.
 
-The project simulates a real-world healthcare analytics scenario, transforming raw CSV data into meaningful business insights using Python.
+Using Python and data analysis techniques, this project performs data cleaning, exploratory data analysis (EDA), and visualization to uncover patterns between variables such as age, BMI, smoking habits, number of children, and region and their impact on medical expenses.
 
-It demonstrates practical Data Analyst skills including:
+The goal is to gain data-driven insights that can help healthcare providers and insurance companies better understand cost drivers in medical insurance.
 
-Data cleaning & preprocessing
+🎯 Business Problem
 
-Exploratory Data Analysis
+Healthcare costs vary widely depending on multiple factors. Understanding these drivers can help:
 
-Visualization
+Insurance companies predict medical expenses
 
-Statistical interpretation
+Customers understand cost risks
 
-Business recommendations
+Healthcare organizations optimize insurance plans
 
-🎯 Business Objective
+This project answers questions such as:
 
-Insurance companies want to understand:
+How does age affect medical charges?
 
-What drives higher medical costs?
+Do smokers pay higher insurance costs?
 
-How lifestyle factors affect insurance charges?
+Does BMI influence medical expenses?
 
-Which customer segments are most expensive?
+How do family size and region affect costs?
 
-This analysis helps support:
+📂 Dataset Description
 
-✅ Risk assessment
-✅ Premium pricing strategy
-✅ Customer segmentation
-✅ Preventive healthcare planning
+The dataset contains information about insurance beneficiaries and their medical charges.
 
-🛠 Tools & Technologies
-
-Python
-
-Jupyter Notebook
-
-Pandas
-
-NumPy
-
-Matplotlib
-
-Seaborn
-
-Developed using Project Jupyter
-Version controlled on GitHub
-
-📂 Project Structure
-Medical-Cost-Analysis/
+Key Columns
+Column	Description
+age	Age of the insured person
+sex	Gender of the individual
+bmi	Body Mass Index
+children	Number of dependents
+smoker	Smoking status (Yes/No)
+region	Residential region
+charges	Medical insurance cost
+🛠 Tools & Technologies Used
+Tool	Purpose
+Python	Data analysis
+Pandas	Data manipulation
+Matplotlib	Data visualization
+Jupyter Notebook	Interactive analysis
+📁 Project Structure
+Medical-Cost-Analysis
 │
 ├── Medical Cost Analysis.ipynb
 ├── insurance.csv
 ├── README.md
-└── requirements.txt
+🔎 Data Analysis Workflow
+1️⃣ Import Required Libraries
+import pandas as pd
+import matplotlib.pyplot as plt
 
-🔄 End-to-End Workflow
-1️⃣ Data Loading
+These libraries are used for data analysis and visualization.
 
-Imported CSV using Pandas
+2️⃣ Load the Dataset
+df = pd.read_csv("insurance.csv")
 
-Inspected data using .head(), .info(), .describe()
+The dataset is loaded into a Pandas DataFrame for further analysis.
 
-2️⃣ Data Cleaning
+3️⃣ Data Exploration
 
-Checked missing values
+Initial exploration helps understand the dataset.
 
-Removed duplicates
+df.head()
+df.info()
+df.describe()
+df.shape
 
-Converted categorical variables
+This step identifies:
 
-Verified data types
+Dataset structure
 
-Renamed columns for clarity
+Data types
 
-3️⃣ Exploratory Data Analysis (EDA)
+Statistical summaries
 
-Performed analysis on:
+Number of records
 
-Age vs Charges
+4️⃣ Data Cleaning
+Check Missing Values
+df.isnull().sum()
+Check Duplicate Records
+df.duplicated().sum()
 
-BMI vs Charges
+Ensuring the dataset is clean and consistent before performing analysis.
 
-Smoker vs Non-smoker costs
+📊 Exploratory Data Analysis (EDA)
+Age vs Medical Charges
+plt.scatter(df["age"], df["charges"])
+plt.title("Age vs Medical Charges")
+plt.show()
 
-Region-wise distribution
+This visualization shows how medical costs increase with age.
 
-Children vs Insurance Charges
+🚬 Smoking Impact on Medical Cost
+df.groupby("smoker")["charges"].mean()
 
-Visualizations used:
+This analysis compares average medical charges for smokers and non-smokers.
 
-Histograms
+⚖ BMI vs Medical Charges
+plt.scatter(df["bmi"], df["charges"])
+plt.title("BMI vs Medical Charges")
+plt.show()
 
-Boxplots
+This helps analyze whether higher BMI leads to higher medical costs.
 
-Bar charts
+👨‍👩‍👧 Family Size Impact
+df.groupby("children")["charges"].mean()
 
-Scatter plots
+This analysis checks whether having more dependents affects medical costs.
 
-Correlation heatmap
+🌍 Regional Medical Cost Comparison
+df.groupby("region")["charges"].mean()
 
-🔍 Key Insights
+This shows how medical costs vary across different regions.
 
-✔ Smokers have significantly higher medical charges
-✔ Insurance cost increases with age
-✔ Higher BMI tends to increase charges
-✔ Customers with children show moderate cost rise
-✔ Southeast region shows slightly higher average expenses
+💡 Key Insights
 
-📊 Sample Business Questions Answered
+✔ Smokers have significantly higher medical charges compared to non-smokers.
 
-How much more do smokers pay than non-smokers?
+✔ Medical costs increase with age, indicating higher healthcare risks.
 
-Does BMI strongly affect insurance cost?
+✔ Higher BMI is associated with increased medical expenses.
 
-Which region has highest medical expenses?
+✔ Regional differences exist but are less significant compared to smoking status.
 
-What age group spends most on healthcare?
+✔ Number of children has moderate impact on insurance costs.
 
-Are children linked to higher insurance charges?
+📈 Business Implications
 
-💡 Business Recommendations
+The insights from this analysis can help:
 
-✅ Introduce preventive programs for smokers
-✅ Promote fitness incentives for high-BMI customers
-✅ Adjust premiums based on risk segmentation
-✅ Provide family insurance bundles
-✅ Target wellness campaigns by region
+Insurance companies improve pricing models
 
-📈 Outcome
+Healthcare providers identify high-risk groups
 
-This project showcases:
+Policymakers promote preventive health strategies
 
-Practical Python EDA skills
+🚀 Future Improvements
 
-Healthcare analytics understanding
+This project can be extended by:
 
-Visualization storytelling
+Building a machine learning model to predict medical charges
 
-Business-oriented thinking
+Creating interactive dashboards using Power BI or Tableau
 
-Suitable for:
+Performing advanced statistical analysis
 
-✔ Resume project
-✔ Data Analyst interviews
-✔ Portfolio
-✔ Fresher job applications
-
-🚀 Future Enhancements
-
-Predict insurance charges using Machine Learning
-
-Add Power BI dashboard
-
-Perform feature engineering
-
-Apply regression modeling
-
-Deploy as web app
-
-👤 Author
-
-Subhadip Ray
-Aspiring Data Analyst
-
-Skills:
-Python | SQL | Power BI | Excel | Pandas | NumPy
+Deploying the analysis as a data analytics web app
